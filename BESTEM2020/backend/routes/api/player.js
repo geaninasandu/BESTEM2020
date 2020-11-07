@@ -19,3 +19,9 @@ router.route('/:playerId/profiles/:profileId')
     .patch(controller.updateProfile);
 
 module.exports = router;
+
+// "profiles": {
+//     "name": "Profile1",
+//         "hero": "Hero1",
+//         "cards":
+// }

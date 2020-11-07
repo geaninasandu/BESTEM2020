@@ -19,8 +19,6 @@ exports.getPlayerById = (req, res) => {
 };
 
 exports.login = (req, res) => {
-    console.log(req.body);
-
     Player.findOne({ username: req.body.username })
         .then(player => {
             if (!player) {

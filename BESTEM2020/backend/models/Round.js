@@ -23,9 +23,11 @@ const RoundSchema = mongoose.Schema({
     deck: [ CardSchema ],
     hand: [ CardSchema ],
     board: [ cardAttributes ],
-    heroAbilityTapped: Boolean,
     discard: [ CardSchema ],
+    heroAbilityTapped: Boolean,
     profileId: mongoose.Types.ObjectId,
 });
 
-module.exports = RoundSchema;
+const Round = new mongoose.model('Round', RoundSchema);
+
+module.exports = { Round, RoundSchema };

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const RoundSchema = require('./Round');
+const RoundSchema = require('./Round').RoundSchema;
 
 const GameSchema = mongoose.Schema({
     firstPlayer: {
@@ -10,11 +10,13 @@ const GameSchema = mongoose.Schema({
     secondPlayer: {
         type: RoundSchema,
         required: true,
+        default: {},
     },
 
     round: {
         type: Number,
         required: true,
+        default: 1,
     },
 
     active: {
