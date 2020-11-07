@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const controller = require('../../controllers/game');
+const auth = require('../../middleware');
 
-router.post('/playCard', controller.playCard);
+router.post('/playCard', auth, controller.playCard);
 
 router.route('/')
-    .post(controller.createGame);
+    .post(auth, controller.createGame);
 
 module.exports = router;

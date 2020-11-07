@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
 const CardSchema = mongoose.Schema({
-    type: {
+    name: {
         type: String,
         required: true,
     },
 
-    name: {
+    type: {
         type: String,
         required: true,
     },
@@ -16,12 +16,12 @@ const CardSchema = mongoose.Schema({
         default: 0,
     },
 
-    manaCost: {
+    damage: {
         type: Number,
         default: 0,
     },
 
-    damage: {
+    manaCost: {
         type: Number,
         default: 0,
     },

@@ -14,8 +14,6 @@ const gameRouter = require('./routes/api/game');
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(auth);
-
 const mongoUri = process.env.MONGO_URI;
 mongoose.connect(mongoUri, {
     useNewUrlParser: true,
