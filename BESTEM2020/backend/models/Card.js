@@ -16,7 +16,7 @@ const CardSchema = mongoose.Schema({
         default: 0,
     },
 
-    mana_cost: {
+    manaCost: {
         type: Number,
         default: 0,
     },
@@ -26,13 +26,7 @@ const CardSchema = mongoose.Schema({
         default: 0,
     },
 
-    description: {
-        type: String,
-        required: true,
-        default: '',
-    },
-
-    image_url: {
+    imageUrl: {
         type: String,
         required: true,
     },
