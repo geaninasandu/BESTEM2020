@@ -22,5 +22,7 @@
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "proxy": "localhost:5000",
+  "secure": false
 }
