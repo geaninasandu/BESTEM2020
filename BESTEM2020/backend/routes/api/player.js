@@ -19,7 +19,4 @@ router.route('/:playerId/profiles')
 router.route('/:playerId/profiles/:profileId')
     .patch(auth, controller.updateProfile);
 
-router.route('/addCard')
-    .get(controller.addCard);
-
 module.exports = router;

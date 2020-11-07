@@ -8,4 +8,7 @@ router.post('/playCard', auth, controller.playCard);
 router.route('/')
     .post(auth, controller.createGame);
 
+router.route('/joinGame')
+    .post(auth, controller.joinGame);
+
 module.exports = router;

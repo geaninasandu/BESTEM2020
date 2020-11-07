@@ -9,8 +9,7 @@ const GameSchema = mongoose.Schema({
 
     secondPlayer: {
         type: RoundSchema,
-        required: true,
-        default: {},
+        default: null,
     },
 
     round: {
