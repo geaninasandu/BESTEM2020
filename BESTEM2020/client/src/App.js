@@ -1,8 +1,9 @@
 import React from 'react';
+import LandingPage from './components/landingPage.js';
 
 function App() {
     return (
-        <div className="root" />
+        <LandingPage />
     );
 }
 

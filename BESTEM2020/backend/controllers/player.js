@@ -19,24 +19,38 @@ exports.getPlayerById = (req, res) => {
 };
 
 exports.login = (req, res) => {
-    Player.findOne({ username: req.body.username }).then(player => {
-        if (!player) {
-            return res.status(404).json({ message: 'Player does not exist!' });
-        }
+    console.log(req.body);
 
-        bcrypt.compare(req.body.password, player.password)
-            .then(isMatch => {
-                if (!isMatch) {
-                    return res.status(400).json({ message: 'Password is incorrect!' });
-                }
+    Player.findOne({ username: req.body.username })
+        .then(player => {
+            if (!player) {
+                return res.status(404).json({ message: 'Player does not exist!' });
+            }
 
-                return res.json({
-                    _id: player._id,
-                    username: player.username,
-                });
-            })
-            .catch(err => res.status(500).json({ message: err }));
-    });
+            bcrypt.compare(req.body.password, player.password)
+                .then(isMatch => {
+                    if (!isMatch) {
+                        return res.status(400).json({ message: 'Password is incorrect!' });
+                    }
+
+                    jwt.sign({ id: player._id }, process.env.JWT_KEY, (err, token) => {
+                        if (err) {
+                            return res.status(404).json(err);
+                        }
+
+                        res.cookie('t', token);
+
+                        return res.json({
+                            player: {
+                                _id: player._id,
+                                username: player.username,
+                            },
+                            token,
+                        });
+                    });
+                })
+                .catch(err => res.status(500).json({ message: err }));
+        });
 };
 
 exports.register = (req, res) => {
@@ -45,14 +59,7 @@ exports.register = (req, res) => {
     bcrypt.hash(player.password, 10)
         .then(hash => {
             player.password = hash;
-            player.save()
-                .then(() => {
-                    res.json({
-                        _id: player._id,
-                        username: player.username,
-                    });
-                })
-                .catch(err => res.status(500).send(err));
+            player.save().then(() => addToken(player, res));
         })
         .catch(err => {
             console.log(err);
