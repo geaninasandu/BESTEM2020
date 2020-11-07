@@ -5,14 +5,22 @@ const CardSchema = require('./Card').CardSchema;
 const PlayerSchema = mongoose.Schema({
     username: {
         type: String,
+        unique: true,
+        required: true,
+    },
+
+    password: {
+        type: String,
         required: true,
     },
 
     profiles: {
         type: [ {
+            name: String,
             hero: HeroSchema,
-            deck: [ CardSchema ],
+            cards: [ CardSchema ],
         } ],
+        default: [],
     },
 });
 

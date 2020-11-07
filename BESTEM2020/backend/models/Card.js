@@ -8,7 +8,7 @@ const CardSchema = mongoose.Schema({
 
     name: {
         type: String,
-        required: true
+        required: true,
     },
 
     health: {
@@ -28,13 +28,14 @@ const CardSchema = mongoose.Schema({
 
     description: {
         type: String,
-        required: true
+        required: true,
+        default: '',
     },
 
     image_url: {
         type: String,
-        required: true
-    }
+        required: true,
+    },
 });
 
 const Card = new mongoose.model('Card', CardSchema);

@@ -8,7 +8,8 @@ const HeroSchema = mongoose.Schema({
 
     ability: {
         type: String,
-    }
+        default: '',
+    },
 });
 
 const Hero = new mongoose.model('Hero', HeroSchema);
