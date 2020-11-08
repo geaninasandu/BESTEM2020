@@ -1,8 +1,94 @@
-body {
-    background: url("https://cdn.discordapp.com/attachments/770775355165245462/774657742681014323/66257-aleni.png") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+:root {
+    background: url("https://cdn.discordapp.com/attachments/770775355165245462/774657742681014323/66257-aleni.png") ;
 }
 
+.card {
+    width: 100px;
+    height: 180px;
+    background: #23262F 0% 0% no-repeat padding-box;
+    border: 5px solid #99781C;
+    border-radius: 5px;
+    opacity: 1;
+    margin: 0px 2px 2px 2px;
+
+}
+
+.banner {
+    width: 98px;
+    height: 30px;
+    background: #4D858B 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-img {
+    width: 80px;
+    height: 80px;
+    margin-left: 10px;
+    margin-top: -20px;
+
+}
+
+.banner p {
+    margin: auto 0 auto 0;
+}
+
+.bottom-banner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom-banner div {
+    display: flex;
+}
+
+.bottom-banner img {
+    width: 20px;
+}
+
+.bottom-banner p {
+    margin: 5px;
+    font-size: 20px;
+    size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.mana-holder {
+    background-color: lightblue;
+    width: 45px;
+    height: 45px;
+    border-radius: 23px;
+    left: -20px;
+    top: -20px;
+    position: relative;
+}
+
+#mana-text {
+    color: red;
+    position: relative;
+    left: 1rem;
+    top: 0.2rem;
+    font-size: 200%;
+    font-weight: bold;
+}
+
+/* -=-----------Card Customization Done----------=- */
+
+.back-card-wraped img {
+    height: 178px;
+    margin: 1px;
+}
+
+.row {
+    height: 190px;
+    display: flex;
+    margin-top: 40px;
+}
+
+.row_wraper {
+    height: 100%;
+    display: flex;
+    margin: 0 auto 0 auto;
+}
