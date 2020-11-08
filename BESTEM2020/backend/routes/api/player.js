@@ -12,11 +12,11 @@ router.route('/register')
 router.route('/login')
     .post(controller.login);
 
-router.route('/:playerId/profiles')
+router.route('/profiles')
     .get(auth, controller.getProfiles)
     .post(auth, controller.addProfile);
 
-router.route('/:playerId/profiles/:profileId')
+router.route('/profiles/:profileId')
     .patch(auth, controller.updateProfile);
 
 module.exports = router;

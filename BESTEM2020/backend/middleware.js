@@ -7,7 +7,6 @@ function auth(req, res, next) {
 
     try {
         const token = req.header('Authorization').split(' ')[1];
-
         req.user = jwt.verify(token, process.env.JWT_KEY);
         next();
     } catch (err) {
