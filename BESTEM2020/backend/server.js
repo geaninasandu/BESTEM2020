@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 require('dotenv').config();
-const auth = require('./middleware');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -13,8 +12,6 @@ const gameRouter = require('./routes/api/game');
 
 app.use(express.json());
 app.use(cookieParser());
-
-app.use(auth);
 
 const mongoUri = process.env.MONGO_URI;
 mongoose.connect(mongoUri, {

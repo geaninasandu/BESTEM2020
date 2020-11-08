@@ -20,22 +20,22 @@ class Card {
 export const heroes = [
     {
         name: 'Sushi Slayer',
-        ability: new Ability('Anger', 'Add two attack points to an ally.', 2),
+        ability: {name: 'Anger', description: 'Add two attack points to an ally.', cost: 2},
         picture: 'https://firebasestorage.googleapis.com/v0/b/bestem-1426e.appspot.com/o/heroes%2Fshushi_slayer.png?alt=media&token=1ac29a52-c3d2-4982-9e5e-5eb14c1664ae',
         health: 30,
     }, {
         name: 'Diana',
-        ability: new Ability('Blur', 'Give an ally a 50/50 chance to dodge a non-lethal attack.', 2),
+        ability: {name: 'Blur', description:'Give an ally a 50/50 chance to dodge a non-lethal attack.', cost :2},
         picture: 'https://firebasestorage.googleapis.com/v0/b/bestem-1426e.appspot.com/o/heroes%2Fdiana.png?alt=media&token=6efc3810-0b19-443a-87e8-226aa4a2a0ec',
         health: 30,
     }, {
         name: 'Spike Spiegel',
-        ability: new Ability('Point Blank', 'Deal two damage to an enemy.', 2),
+        ability: {name: 'Point Blank', description:'Deal two damage to an enemy.', cost :2},
         picture: 'https://firebasestorage.googleapis.com/v0/b/bestem-1426e.appspot.com/o/heroes%2Fspike_spiegel.jpg?alt=media&token=4abc19de-68b9-4d25-bc6f-324b8cffa60f',
         health: 30,
     }, {
         name: 'Faye Valentine',
-        ability: new Ability('Tactical', 'Raise your maximum MP by 2 for the next round.', 2),
+        ability: {name: 'Tactical', description:'Raise your maximum MP by 2 for the next round.', cost :2},
         picture: 'https://firebasestorage.googleapis.com/v0/b/bestem-1426e.appspot.com/o/heroes%2Ffaye_valentine.jpg?alt=media&token=d45ccf85-b4c6-41ea-b952-b805193d07c2',
         health: 30,
     },

@@ -11,7 +11,6 @@ const cardAttributes = {
 
 const RoundSchema = mongoose.Schema({
     player: PlayerSchema,
-    opponent: PlayerSchema,
     health: {
         max: Number,
         current: Number,

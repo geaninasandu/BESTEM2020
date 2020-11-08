@@ -26,4 +26,17 @@ const PlayerSchema = mongoose.Schema({
 
 const Player = new mongoose.model('Player', PlayerSchema);
 
+if (Player.countDocuments() === 0) {
+    Player.insertMany([
+        {
+            username: 'user1',
+            password: 'pass',
+        },
+        {
+            username: 'user2',
+            password: 'pass',
+        },
+    ]);
+}
+
 module.exports = { Player, PlayerSchema };

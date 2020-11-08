@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Player = require('../models/Player').Player;
 const { addToken, credentialsValidator } = require('../utils/player.utils');
+const Card = require('../models/Card').Card;
 
 exports.getPlayerById = (req, res) => {
     Player.findOne({ _id: req.params.playerId })
@@ -78,7 +79,7 @@ exports.getProfiles = (req, res) => {
 };
 
 exports.addProfile = (req, res) => {
-    const query = { _id: req.params.playerId, 'profiles.name': { $ne: req.body.profileName } },
+    const query = { _id: req.params.playerId, 'profiles.name': { $ne: req.body.name } },
         update = { $push: { profiles: req.body } };
 
     Player.updateOne(query, update)
