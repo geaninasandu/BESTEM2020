@@ -4,26 +4,50 @@ const CardSchema = require('./Card').CardSchema;
 
 const cardAttributes = {
     card: CardSchema,
-    tapped: Boolean,
-    defender: Boolean,
-    currentHealth: Number,
+    tapped: {
+        type: Boolean,
+        default: true,
+    },
+    defender: {
+        type: Boolean,
+        default: false,
+    },
+    currentHealth: {
+        type: Number,
+        default: 30,
+    }
 };
 
 const RoundSchema = mongoose.Schema({
     player: PlayerSchema,
     health: {
-        max: Number,
-        current: Number,
+        max: {
+            type: Number,
+            default: 30,
+        },
+        current: {
+            type: Number,
+            default: 30,
+        }
     },
     mana: {
-        max: Number,
-        current: Number,
+        max: { 
+            type: Number,
+            default: 10,
+        },
+        current: {
+            type: Number,
+            default: 0,
+        }
     },
     deck: [ CardSchema ],
     hand: [ CardSchema ],
     board: [ cardAttributes ],
     discard: [ CardSchema ],
-    heroAbilityTapped: Boolean,
+    heroAbilityTapped: { 
+        type: Boolean,
+        default: true,
+    },
     profileId: mongoose.Types.ObjectId,
 });
 

@@ -19,9 +19,8 @@ mongoose.connect(mongoUri, {
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: false,
-})
-    .then(() => console.log('MongoDB database connection established successfully!'))
-    .catch(err => console.log(err));
+}).then(() => console.log('MongoDB database connection established successfully!'))
+.catch(err => console.log(err));
 
 app.use('/api/players', playersRouter);
 app.use('/api/game', gameRouter);

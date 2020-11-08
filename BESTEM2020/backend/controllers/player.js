@@ -5,7 +5,7 @@ const { addToken, credentialsValidator } = require('../utils/player.utils');
 const Card = require('../models/Card').Card;
 
 exports.getPlayerById = (req, res) => {
-    Player.findOne({ _id: req.params.playerId })
+    Player.findOne({ _id: req.user.id })
         .then((player) => {
             if (!player) {
                 res.status(404).json('User not found');
@@ -67,7 +67,7 @@ exports.register = (req, res) => {
 };
 
 exports.getProfiles = (req, res) => {
-    Player.findById(req.params.playerId)
+    Player.findById(req.user.id)
         .then((player) => {
             if (!player) {
                 return res.status(404).json({ message: 'Player does not exist!' });
@@ -79,7 +79,25 @@ exports.getProfiles = (req, res) => {
 };
 
 exports.addProfile = (req, res) => {
-    const query = { _id: req.params.playerId, 'profiles.name': { $ne: req.body.name } },
+    if (req.body.cards.length !== 20) {
+        return res.status(400).json({ message: 'A profile/deck should have 20.' });
+    }
+    
+    for (let i = 0; i < req.body.cards.length; ++i) {
+        let count = 1;
+        console.log(count);
+        for (let j = i + 1; j < req.body.cards.length; ++j) {
+            if (req.body.cards[j].name === req.body.cards[i].name) {
+                count += 1;
+                console.log(count);
+                if (count > 2) {
+                    return res.status(400).json({ message: 'A card should not appear more than two times.' });
+                }
+            }
+        }
+    }
+
+    const query = { _id: req.user.id, 'profiles.name': { $ne: req.body.name } },
         update = { $push: { profiles: req.body } };
 
     Player.updateOne(query, update)
@@ -88,7 +106,7 @@ exports.addProfile = (req, res) => {
 };
 
 exports.updateProfile = (req, res) => {
-    Player.updateOne({ _id: req.params.playerId, profiles: { $elemMatch: { _id: req.params.profileId } } },
+    Player.updateOne({ _id: req.user.id, profiles: { $elemMatch: { _id: req.params.profileId } } },
         { $set: { 'profiles.$': req.body } })
         .then(() => res.json('Profile updated successfully.'))
         .catch(err => res.status(404).json(err));
