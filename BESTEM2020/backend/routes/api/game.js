@@ -3,28 +3,28 @@ const router = express.Router();
 const controller = require('../../controllers/game');
 const auth = require('../../middleware');
 
-router.route('/:gameId/:creatureId/spawnCreature')
+router.route('/:gameId/spawnCreature/:creatureId')
     .post(auth, controller.spawnCreature);
 
 router.route('/:gameId/:creatureId/creatureAttack/:opponentId')
-    .post(auth, controller.spawnCreature);
+    .post(auth, controller.creatureAttack);
 
 router.route('/:gameId/:creatureId/creatureDefend')
-    .post(auth, controller.spawnCreature);
-
-router.route('/castSpell')
-    .post(auth, controller.spawnCreature);
+    .post(auth, controller.creatureDefend);
 
 router.route('/useHeroAbility')
-    .post(auth, controller.spawnCreature);
+    .post(auth, controller.useHeroAbility);
 
-router.route('/useHeroAbility')
-    .post(auth, controller.spawnCreature);
+router.route('/:gameId/endTurn')
+    .post(auth, controller.endTurn);
 
-router.route('/endTurn')
-    .post(auth, controller.spawnCreature);
+router.route('/createGame')
+    .post(auth, controller.createGame);
 
 router.route('/:gameId/joinGame')
     .post(auth, controller.joinGame);
+
+router.route('/:gameId/')
+    .get(controller.getGameState);
 
 module.exports = router;

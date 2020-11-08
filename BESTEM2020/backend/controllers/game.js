@@ -5,6 +5,65 @@ const mongoose = require('mongoose');
 const lodash = require('lodash');
 const { truncate } = require('lodash');
 
+exports.getGameState = (req, res) => {
+    const gameId = req.params.gameId;
+    Game.findOne({ "_id": mongoose.Types.ObjectId(gameId), active: true }).then((currentGame) => {
+        if (!currentGame) {
+            return res.status(404).send('Game not found.');
+        }
+        return res.json(currentGame);
+    });
+};
+
+exports.endTurn = (req, res) => {
+    const gameId = req.params.gameId;
+    const userId = req.user.id;
+    Game.findOne({ "_id": mongoose.Types.ObjectId(gameId), active: true }).then((currentGame) => {
+        if (!currentGame) {
+            return res.status(404).send('Game not found.');
+        }
+        var round;
+        var isFirstPlayer = false;
+        if (currentGame.firstPlayer.player._id == userId) {
+            if (currentGame.round % 2 == 0) {
+                return res.status(400).send('It\'s not your turn.');
+            }
+            isFirstPlayer = true;
+            round = currentGame.firstPlayer;
+        } else if (currentGame.secondPlayer.player._id == userId) {
+            if (currentGame.round % 2 == 1) {
+                return res.status(400).send('It\'s not your turn.');
+            }
+            round = currentGame.secondPlayer;
+        } else {
+            return res.status(404).send('User not found.');
+        }
+
+        console.log('One turn passed.');
+
+        if (currentGame.round % 2 == 0) {
+            currentGame.firstPlayer.heroAbilityTapped = false;
+            currentGame.secondPlayer.heroAbilityTapped = false;
+
+            currentGame.firstPlayer.mana.max += 1;
+            currentGame.firstPlayer.mana.current = currentGame.firstPlayer.mana.max;
+            currentGame.secondPlayer.mana.max += 1;
+            currentGame.secondPlayer.mana.current = currentGame.secondPlayer.mana.max;
+        
+            currentGame.firstPlayer.board.forEach((cardOnBoard) => cardOnBoard.tapped = false);
+            currentGame.secondPlayer.board.forEach((cardOnBoard) => cardOnBoard.tapped = false);
+
+            console.log('Cleanup phase was done.');
+        }
+
+        currentGame.round += 1;
+ 
+        currentGame.save()
+            .then(() => res.json('Turn complete.'))
+            .catch(err => res.status(404).json(err));
+    });
+};
+
 exports.creatureAttack = (req, res) => {
     const opponentId = req.params.opponentId;
     const creatureId = req.body.creatureId;
@@ -54,7 +113,6 @@ exports.creatureAttack = (req, res) => {
         if (isOpponentAPlayer) {
             isOpponentAPlayer.health.currentHealth -= cardOnBoard.card.damage;
             cardOnBoard.tapped = true;
-
             if (isOpponentAPlayer.health.currentHealth <= 0) {
                 currentGame.active = false;
             }

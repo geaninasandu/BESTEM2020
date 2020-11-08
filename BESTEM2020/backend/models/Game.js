@@ -19,6 +19,8 @@ const GameSchema = mongoose.Schema({
         type: Boolean,
         default: true,
     },
+    // ar trb crescut nr. rundei
+    // sa cresti mana maxima cu 1, sa 
 });
 
 const Game = new mongoose.model('Game', GameSchema);
