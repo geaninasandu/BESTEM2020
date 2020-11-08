@@ -21,14 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="301f12a0-ca73-4dac-84b0-9559862a5877" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BESTEM2020/backend/controllers/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/BESTEM2020/backend/controllers/game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BESTEM2020/backend/controllers/player.js" beforeDir="false" afterPath="$PROJECT_DIR$/BESTEM2020/backend/controllers/player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BESTEM2020/backend/models/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/BESTEM2020/backend/models/Game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BESTEM2020/backend/models/Round.js" beforeDir="false" afterPath="$PROJECT_DIR$/BESTEM2020/backend/models/Round.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BESTEM2020/backend/models/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/BESTEM2020/backend/models/Player.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BESTEM2020/backend/routes/api/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/BESTEM2020/backend/routes/api/game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BESTEM2020/backend/routes/api/player.js" beforeDir="false" afterPath="$PROJECT_DIR$/BESTEM2020/backend/routes/api/player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BESTEM2020/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/BESTEM2020/backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BESTEM2020/client/src/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/BESTEM2020/client/src/constants.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +79,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604751670330</updated>
-      <workItem from="1604751671810" duration="33749000" />
+      <workItem from="1604751671810" duration="36405000" />
     </task>
     <servers />
   </component>

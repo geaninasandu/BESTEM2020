@@ -5,7 +5,7 @@ const auth = require('../../middleware');
 
 router.post('/playCard', auth, controller.playCard);
 
-router.route('/')
+router.route('/createGame')
     .post(auth, controller.createGame);
 
 router.route('/joinGame')
