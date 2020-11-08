@@ -53,6 +53,16 @@ exports.endTurn = (req, res) => {
             currentGame.firstPlayer.board.forEach((cardOnBoard) => cardOnBoard.tapped = false);
             currentGame.secondPlayer.board.forEach((cardOnBoard) => cardOnBoard.tapped = false);
 
+            if (currentGame.firstPlayer.deck.length > 0) {
+                const firstDeckCard = currentGame.firstPlayer.deck.shift();
+                currentGame.firstPlayer.hand.push(firstDeckCard);
+            }
+
+            if (currentGame.secondPlayer.deck.length > 0) {
+                const secondDeckCard = currentGame.secondPlayer.deck.shift();
+                currentGame.secondPlayer.hand.push(secondDeckCard);
+            }
+
             console.log('Cleanup phase was done.');
         }
 
