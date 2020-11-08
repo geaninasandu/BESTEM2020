@@ -96,8 +96,81 @@
 /* -------------------------------- */
 
 .main-hero-badge {
-    height: 100px;
-    width: 100px;
-    background-color: aqua;
-
+    height: 300px;
+    width: 300px;
+    background-color: #99781C;
+    position: fixed;
+    top: 580px;
+    left: 55px;
+    border: solid 25px #23262F;
+    border-radius: 300px;
 }
+
+.main-hero-health-wraper {
+    display: flex;
+    background-color: pink;
+    border-radius: 50px;
+}
+
+.main-hero-health-wraper p {
+    font-size: 200%;
+    margin-left: 80px;
+    color: black;
+}
+
+.hearth-img {
+    width: 90px;
+    height: 90px;
+    margin-left: 40px;
+    margin-top: 7px;
+}
+
+.mh-image {
+    width: 250px;
+    height: 230px;
+    margin-left: 30px;
+}
+
+
+
+/* -------------------------------- */
+
+.enemy-main-hero-badge {
+    height: 300px;
+    width: 300px;
+    background-color: #99781C;
+    position: fixed;
+    top: 0;
+    left: 1500px;
+    border: solid 25px #23262F;
+    border-radius: 300px;
+}
+
+.enemy-main-hero-health-wraper {
+    display: flex;
+    background-color: pink;
+    border-radius: 50px;
+}
+
+.enemy-main-hero-health-wraper p {
+    font-size: 200%;
+    margin-left: 80px;
+    color: black;
+}
+
+.enemy-hearth-img {
+    width: 90px;
+    height: 90px;
+    margin-left: 40px;
+    margin-top: 7px;
+}
+
+.enemy-mh-image {
+    width: 250px;
+    height: 230px;
+    margin-left: 30px;
+}
+
+
+
+
