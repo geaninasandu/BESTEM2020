@@ -9,8 +9,8 @@
     "dev": "concurrently \"npm start start\" \"npm run client\""
   },
   "dependencies": {
-    "axios": "0.20.0",
-    "bcrypt": "5.0.0",
+    "axios": "0.21.1",
+    "bcrypt": "5.0.1",
     "concurrently": "5.3.0",
     "cookie-parser": "1.4.5",
     "dotenv": "8.2.0",
