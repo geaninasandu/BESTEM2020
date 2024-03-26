@@ -15,7 +15,7 @@
     "cookie-parser": "1.4.5",
     "dotenv": "8.2.0",
     "email-validator": "2.0.4",
-    "express": "4.17.1",
+    "express": "4.19.2",
     "jsonwebtoken": "8.5.1",
     "lodash": "^4.17.20",
     "mailgun-js": "0.22.0",
